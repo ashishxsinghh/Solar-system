@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Solar System</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: radial-gradient(circle, #000428, #004e92);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+
+    .solar-system {
+      perspective: 1000px;
+      width: 700px;
+      height: 700px;
+      position: relative;
+    }
+
+    .orbit {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300px;
+      height: 300px;
+      border: 1px dashed rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: rotate 20s linear infinite;
+    }
+
+    .orbit.mercury { width: 100px; height: 100px; animation-duration: 5s; }
+    .orbit.venus { width: 150px; height: 150px; animation-duration: 8s; }
+    .orbit.earth { width: 200px; height: 200px; animation-duration: 12s; }
+    .orbit.mars { width: 250px; height: 250px; animation-duration: 15s; }
+    .orbit.jupiter { width: 300px; height: 300px; animation-duration: 20s; }
+    .orbit.saturn { width: 350px; height: 350px; animation-duration: 25s; }
+    .orbit.uranus { width: 400px; height: 400px; animation-duration: 30s; }
+    .orbit.neptune { width: 450px; height: 450px; animation-duration: 35s; }
+
+    @keyframes rotate {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .sun {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100px;
+      height: 100px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/e/e3/Sun_white.jpg') no-repeat center;
+      background-size: cover;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 30px rgba(255, 200, 0, 0.8);
+    }
+
+    .planet {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-size: cover;
+      transform: translate(-50%, -50%) rotate(0deg) translateX(50px);
+    }
+
+    .planet.mercury {
+      width: 20px;
+      height: 20px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/3/3c/Mercury_in_true_color.jpg') no-repeat center;
+      background-size: cover;
+      transform: translate(-50%, -50%) rotate(20deg) translateX(50px);
+    }
+
+    .planet.venus {
+      width: 30px;
+      height: 30px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/8/85/Venus_globe.jpg') no-repeat center;
+      background-size: cover;
+      transform: translate(-50%, -50%) rotate(60deg) translateX(75px);
+    }
+
+    .planet.earth {
+      background: url('https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg') no-repeat center;
+      background-size: cover;
+      transform: translate(-50%, -50%) rotate(120deg) translateX(100px);
+    }
+
+    .planet.mars {
+      background: url('https://upload.wikimedia.org/wikipedia/commons/0/02/OSIRIS_Mars_true_color.jpg') no-repeat center;
+      background-size: cover;
+      transform: translate(-50%, -50%) rotate(200deg) translateX(125px);
+    }
+
+    .planet.jupiter {
+      width: 70px;
+      height: 70px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/e/e2/Jupiter.jpg') no-repeat center;
+      background-size: cover;
+      transform: translate(-50%, -50%) rotate(270deg) translateX(150px);
+    }
+
+    .planet.saturn {
+      width: 80px;
+      height: 80px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/c/c7/Saturn_during_Equinox.jpg') no-repeat center;
+      background-size: cover;
+      transform: translate(-50%, -50%) rotate(310deg) translateX(175px);
+    }
+
+    .planet.uranus {
+      background: url('https://upload.wikimedia.org/wikipedia/commons/3/3d/Uranus2.jpg') no-repeat center;
+      background-size: cover;
+      transform: translate(-50%, -50%) rotate(50deg) translateX(200px);
+    }
+
+    .planet.neptune {
+      background: url('https://upload.wikimedia.org/wikipedia/commons/5/56/Neptune_Full.jpg') no-repeat center;
+      background-size: cover;
+      transform: translate(-50%, -50%) rotate(150deg) translateX(225px);
+    }
+  </style>
+</head>
+<body>
+  <div class="solar-system">
+    <div class="sun"></div>
+    <div class="orbit mercury"><div class="planet mercury"></div></div>
+    <div class="orbit venus"><div class="planet venus"></div></div>
+    <div class="orbit earth"><div class="planet earth"></div></div>
+    <div class="orbit mars"><div class="planet mars"></div></div>
+    <div class="orbit jupiter"><div class="planet jupiter"></div></div>
+    <div class="orbit saturn"><div class="planet saturn"></div></div>
+    <div class="orbit uranus"><div class="planet uranus"></div></div>
+    <div class="orbit neptune"><div class="planet neptune"></div></div>
+  </div>
+</body>
+</html>
